@@ -23,7 +23,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
           _num1 = 0;
           _num2 = 0;
           _operand = "";
-        } else if (buttonText == "+" || buttonText == "-" || buttonText == "*" || buttonText == "/") {
+        } else if (buttonText == "x²") {
+          _num1 = double.parse(_output);
+          _output = (_num1 * _num1).toString();
+          _inputSequence = "$_num1² = $_output";
+          _num1 = 0;
+        }
+        else if (buttonText == "+" || buttonText == "-" || buttonText == "*" || buttonText == "/") {
           _num1 = double.parse(_output);
           _operand = buttonText;
           _output = "0";
@@ -145,16 +151,16 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ),
                 Row(
                   children: <Widget>[
-                    _buildButton("."),
                     _buildButton("0"),
-                    _buildButton("00"),
+                    _buildButton("."),
+                    _buildButton("="),
                     _buildButton("+"),
                   ],
                 ),
                 Row(
                   children: <Widget>[
                     _buildButton("C"),
-                    _buildButton("="),
+                    _buildButton("x²"),
                   ],
                 ),
               ],
